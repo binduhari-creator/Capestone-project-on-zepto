@@ -1,0 +1,25 @@
+================================================================================
+SQL JOIN vs PANDAS MERGE COMPARISON REPORT
+================================================================================
+
+SQL JOIN Row Count: 144, Column Count: 7
+Pandas Merge Row Count: 144, Column Count: 7
+Shape Match: True
+Exact Data Equivalence (assert_frame_equal): True
+
+--- Sample SQL JOIN Output (Top 5 rows) ---
+ book_id                                                               title category_name  price_gbp  price_inr  rating  in_stock
+       1                                             It's Only the Himalayas        Travel      45.17    4765.44       2         1
+       2  Full Moon over Noahâs Ark: An Odyssey to Mount Ararat and Beyond        Travel      49.43    5214.86       4         1
+       3  See America: A Celebration of Our National Parks & Treasured Sites        Travel      48.87    5155.78       3         1
+       4 Vagabonding: An Uncommon Guide to the Art of Long-Term World Travel        Travel      36.94    3897.17       2         1
+       5                                                Under the Tuscan Sun        Travel      37.33    3938.31       3         1
+
+--- Sample Pandas Merge Output (Top 5 rows) ---
+ book_id                                                               title category_name  price_gbp  price_inr  rating  in_stock
+       1                                             It's Only the Himalayas        Travel      45.17    4765.44       2         1
+       2  Full Moon over Noahâs Ark: An Odyssey to Mount Ararat and Beyond        Travel      49.43    5214.86       4         1
+       3  See America: A Celebration of Our National Parks & Treasured Sites        Travel      48.87    5155.78       3         1
+       4 Vagabonding: An Uncommon Guide to the Art of Long-Term World Travel        Travel      36.94    3897.17       2         1
+       5                                                Under the Tuscan Sun        Travel      37.33    3938.31       3         1
+

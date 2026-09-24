@@ -1,0 +1,17 @@
+================================================================================
+MODEL PERSISTENCE & RELOAD VERIFICATION REPORT
+================================================================================
+
+Saved Model File: D:\zepto-capstone\analytics\models\best_titanic_classifier_pipeline.joblib
+Pipeline Components: ['preprocessor', 'classifier']
+
+Raw Test Sample Input (Unpreprocessed):
+ pclass    sex  age  sibsp  parch     fare embarked
+      1 female 29.0      0      0 211.3375        S
+      3   male 22.0      1      0   7.2500        S
+
+Reloaded Pipeline Prediction Results:
+  Passenger 1: Prediction = 1 (Survived) | Survival Probability = 0.9507
+  Passenger 2: Prediction = 0 (Died) | Survival Probability = 0.1134
+
+Verification Status: SUCCESS (Full end-to-end ColumnTransformer + Estimator verified on raw inputs).

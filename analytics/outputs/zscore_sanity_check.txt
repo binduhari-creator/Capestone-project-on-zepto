@@ -1,0 +1,15 @@
+================================================================================
+Z-SCORE STANDARDIZATION SANITY CHECK (EDA STAGE ONLY)
+================================================================================
+
+NOTE: This transformation is strictly an exploratory sanity check on the full dataset
+to verify standard normal scaling behavior. The predictive modeling pipeline performs
+its own train-only preprocessing separately to avoid data leakage.
+
+--- BEFORE STANDARDIZATION ---
+Age:  Mean = 29.3152, Std = 12.9849
+Fare: Mean = 32.0967, Std = 49.6975
+
+--- AFTER STANDARDIZATION (z = (x - mean) / std) ---
+Age Z-score:  Mean = 0.000000 (≈ 0), Std = 1.000000 (≈ 1)
+Fare Z-score: Mean = 0.000000 (≈ 0), Std = 1.000000 (≈ 1)

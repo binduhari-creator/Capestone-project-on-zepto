@@ -1,0 +1,356 @@
+================================================================================
+ZEPTO DATA PIPELINE - SQL QUERY DEMONSTRATION REPORT
+================================================================================
+
+--- Query 1 - SELECT_WHERE ---
+Description: Demonstrates SELECT and WHERE: Filter 5-star in-stock books.
+SQL Statement:
+SELECT book_id, title, price_gbp, price_inr, rating, in_stock
+        FROM books
+        WHERE rating = 5 AND in_stock = 1
+        ORDER BY book_id ASC;
+
+Result Rows: 26
+Output Table:
+ book_id                                                                             title  price_gbp  price_inr  rating  in_stock
+      11                                                1,000 Places to See Before You Die      26.08    2751.44       5         1
+      20                                            A Time of Torment (Charlie Parker #14)      48.35    5100.92       5         1
+      29                 What Happened on Beale Street (Secrets of the South Mysteries #2)      25.37    2676.54       5         1
+      30          The Bachelor Girl's Guide to Murder (Herringford and Watts Mysteries #1)      52.30    5517.65       5         1
+      34                                                 The Silkworm (Cormoran Strike #2)      23.05    2431.78       5         1
+      40                                                                 The Girl You Lost      12.29    1296.59       5         1
+      46                                           A Flight of Arrows (The Pathfinders #2)      55.53    5858.42       5         1
+      48                                                                      Mrs. Houdini      30.25    3191.38       5         1
+      57                                                             The Passion of Dolssa      28.32    2987.76       5         1
+      59                                                            Voyager (Outlander #3)      21.07    2222.89       5         1
+      60                                                                      The Red Tent      35.66    3762.13       5         1
+      64                                                            Between Shades of Gray      20.79    2193.34       5         1
+      65                                                               While You Were Mine      41.32    4359.26       5         1
+      69                                 A Spy's Devotion (The Regency Spies of London #1)      16.97    1790.33       5         1
+      70                           Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)      52.29    5516.60       5         1
+      76 Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)      13.61    1435.86       5         1
+      94                                          Batman: The Dark Knight Returns (Batman)      15.38    1622.59       5         1
+      98                     Superman Vol. 1: Before Truth (Superman by Gene Luen Yang #1)      11.89    1254.40       5         1
+     104                                                                          El Deafo      57.62    6078.91       5         1
+     109                                                                       Roller Girl      14.10    1487.55       5         1
+     118                     The Sandman, Vol. 3: Dream Country (The Sandman (volumes) #3)      55.55    5860.52       5         1
+     119                                     Saga, Volume 3 (Saga (Collected Editions) #3)      21.57    2275.64       5         1
+     129                                          Fruits Basket, Vol. 2 (Fruits Basket #2)      11.64    1228.02       5         1
+     136         Rat Queens, Vol. 1: Sass & Sorcery (Rat Queens (Collected Editions) #1-5)      46.96    4954.28       5         1
+     142                                          Fruits Basket, Vol. 1 (Fruits Basket #1)      40.28    4249.54       5         1
+     143                       Bleach, Vol. 1: Strawberry and the Soul Reapers (Bleach #1)      34.65    3655.58       5         1
+
+--------------------------------------------------------------------------------
+
+--- Query 2 - ORDER_BY_LIMIT ---
+Description: Demonstrates ORDER BY and LIMIT: Top 10 most expensive books by price_inr.
+SQL Statement:
+SELECT book_id, title, price_gbp, price_inr, rating
+        FROM books
+        ORDER BY price_inr DESC
+        LIMIT 10;
+
+Result Rows: 10
+Output Table:
+ book_id                                                                  title  price_gbp  price_inr  rating
+      26                                          Boar Island (Anna Pigeon #19)      59.48    6275.14       3
+      39 The No. 1 Ladies' Detective Agency (No. 1 Ladies' Detective Agency #1)      57.70    6087.35       4
+     104                                                               El Deafo      57.62    6078.91       5
+     144                       Ajin: Demi-Human, Volume 1 (Ajin: Demi-Human #1)      57.06    6019.83       4
+       8                                       A Year in Provence (Provence #1)      56.88    6000.84       4
+     141                                   Giant Days, Vol. 1 (Giant Days #1-4)      56.76    5988.18       4
+      14                                                    The Past Never Ends      56.50    5960.75       4
+      61                                       The Last Painting of Sara de Vos      55.55    5860.52       2
+     118          The Sandman, Vol. 3: Dream Country (The Sandman (volumes) #3)      55.55    5860.52       5
+      46                                A Flight of Arrows (The Pathfinders #2)      55.53    5858.42       5
+
+--------------------------------------------------------------------------------
+
+--- Query 3 - DISTINCT ---
+Description: Demonstrates DISTINCT: Unique rating values among all books in stock.
+SQL Statement:
+SELECT DISTINCT rating
+        FROM books
+        WHERE in_stock = 1
+        ORDER BY rating ASC;
+
+Result Rows: 5
+Output Table:
+ rating
+      1
+      2
+      3
+      4
+      5
+
+--------------------------------------------------------------------------------
+
+--- Query 4 - BETWEEN ---
+Description: Demonstrates BETWEEN: Books with price_gbp between 20.00 and 40.00.
+SQL Statement:
+SELECT book_id, title, price_gbp, price_inr, rating
+        FROM books
+        WHERE price_gbp BETWEEN 20.00 AND 40.00
+        ORDER BY price_gbp ASC;
+
+Result Rows: 60
+Output Table:
+ book_id                                                                                             title  price_gbp  price_inr  rating
+      42                                                              Blood Defense (Samantha Brinkman #1)      20.30    2141.65       3
+      51                                                                              Love, Lies and Spies      20.55    2168.02       2
+      64                                                                            Between Shades of Gray      20.79    2193.34       5
+      31                                                  Delivering the Truth (Quaker Midwife Mystery #1)      20.89    2203.90       4
+     111                                                          Fruits Basket, Vol. 6 (Fruits Basket #6)      20.96    2211.28       4
+      59                                                                            Voyager (Outlander #3)      21.07    2222.89       5
+     119                                                     Saga, Volume 3 (Saga (Collected Editions) #3)      21.57    2275.64       5
+     137                                                            Paper Girls, Vol. 1 (Paper Girls #1-5)      21.71    2290.41       4
+      86                                                              Giant Days, Vol. 2 (Giant Days #5-8)      22.11    2332.60       2
+      34                                                                 The Silkworm (Cormoran Strike #2)      23.05    2431.78       5
+       9 The Road to Little Dribbling: Adventures of an American in Britain (Notes From a Small Island #2)      23.21    2448.66       1
+      38                                                               Career of Evil (Cormoran Strike #3)      24.72    2607.96       2
+      32                                               The Mysterious Affair at Styles (Hercule Poirot #1)      24.80    2616.40       4
+      29                                 What Happened on Beale Street (Secrets of the South Mysteries #2)      25.37    2676.54       5
+      97                                                                                 Through the Woods      25.38    2677.59       2
+      37                                                                Extreme Prey (Lucas Davenport #26)      25.40    2679.70       3
+     101                                 Red Hood/Arsenal, Vol. 1: Open for Business (Red Hood/Arsenal #1)      25.48    2688.14       2
+      67                                                                                          Starlark      25.83    2725.06       3
+      11                                                                1,000 Places to See Before You Die      26.08    2751.44       5
+      58                                                                         Girl With a Pearl Earring      26.77    2824.24       1
+      22                                                                  Poisonous (Max Revere Novels #3)      26.80    2827.40       3
+      27                                                                                         The Widow      27.26    2875.93       2
+      68                                                                             Lost Among the Living      27.70    2922.35       4
+     115                  The Demon Prince of Momochi House, Vol. 4 (The Demon Prince of Momochi House #4)      27.88    2941.34       2
+      49                                                                         The Marriage of Opposites      28.08    2962.44       4
+      57                                                                             The Passion of Dolssa      28.32    2987.76       5
+     135                                                     Saga, Volume 1 (Saga (Collected Editions) #1)      28.48    3004.64       1
+      84                 I Hate Fairyland, Vol. 1: Madly Ever After (I Hate Fairyland (Compilations) #1-5)      29.17    3077.44       2
+      45                         Forever and Forever: The Courtship of Henry Longfellow and Fanny Appleton      29.69    3132.30       3
+     138                              Ouran High School Host Club, Vol. 1 (Ouran High School Host Club #1)      29.87    3151.29       3
+      48                                                                                      Mrs. Houdini      30.25    3191.38       5
+       7                                                                          The Great Railway Bazaar      30.54    3221.97       1
+     122                                                                                     Original Fake      31.45    3317.98       3
+     105                                                                                    Batman: Europa      32.01    3377.06       2
+      56                                                   World Without End (The Pillars of the Earth #2)      32.97    3478.34       4
+      91                                                                 The Shadow Hero (The Shadow Hero)      33.14    3496.27       1
+     108                                                          Fruits Basket, Vol. 9 (Fruits Basket #9)      33.95    3581.73       4
+      66                                                                                 The Secret Healer      34.56    3646.08       3
+     143                                       Bleach, Vol. 1: Strawberry and the Soul Reapers (Bleach #1)      34.65    3655.58       5
+      24                                                                                       Most Wanted      35.28    3722.04       3
+      99                                                So Cute It Hurts!!, Vol. 6 (So Cute It Hurts!! #6)      35.43    3737.86       4
+      60                                                                                      The Red Tent      35.66    3762.13       5
+     112                                                 Death Note, Vol. 6: Give-and-Take (Death Note #6)      36.39    3839.14       3
+      93                                                               Batman: The Long Halloween (Batman)      36.50    3850.75       2
+     131                          The Wicked + The Divine, Vol. 1: The Faust Act (The Wicked + The Divine)      36.52    3852.86       2
+      88                                               Codename Baboushka, Volume 1: The Conclave of Death      36.72    3873.96       4
+       4                               Vagabonding: An Uncommon Guide to the Art of Long-Term World Travel      36.94    3897.17       2
+      47                                                                             The House by the Lake      36.95    3898.23       1
+       5                                                                              Under the Tuscan Sun      37.33    3938.31       3
+      55                                                                            The Invention of Wings      37.34    3939.37       1
+      95                                  Wonder Woman: Earth One, Volume One (Wonder Woman: Earth One #1)      37.34    3939.37       4
+      90                   Bitch Planet, Vol. 1: Extraordinary Machine (Bitch Planet (Collected Editions))      37.92    4000.56       2
+     126                                                                                           Awkward      38.02    4011.11       2
+      73                                                          The Nameless City (The Nameless City #1)      38.16    4025.88       4
+      33                                                             In the Woods (Dublin Murder Squad #1)      38.38    4049.09       2
+     102                Naruto (3-in-1 Edition), Vol. 14: Includes Vols. 40, 41 & 42 (Naruto: Omnibus #14)      38.39    4050.14       2
+      10                                                         Neither Here nor There: Travels in Europe      38.95    4109.23       3
+      52                                                                                 A Paris Apartment      39.01    4115.55       4
+     121                                            Persepolis: The Story of a Childhood (Persepolis #1-2)      39.13    4128.22       1
+     139                                         Ms. Marvel, Vol. 1: No Normal (Ms. Marvel (2014-2015) #1)      39.39    4155.65       4
+
+--------------------------------------------------------------------------------
+
+--- Query 5 - IN ---
+Description: Demonstrates IN clause: Books with top-tier ratings (4 or 5 stars).
+SQL Statement:
+SELECT book_id, title, rating, price_gbp, price_inr
+        FROM books
+        WHERE rating IN (4, 5)
+        ORDER BY rating DESC, price_inr DESC
+        LIMIT 15;
+
+Result Rows: 15
+Output Table:
+ book_id                                                                     title  rating  price_gbp  price_inr
+     104                                                                  El Deafo       5      57.62    6078.91
+     118             The Sandman, Vol. 3: Dream Country (The Sandman (volumes) #3)       5      55.55    5860.52
+      46                                   A Flight of Arrows (The Pathfinders #2)       5      55.53    5858.42
+      30  The Bachelor Girl's Guide to Murder (Herringford and Watts Mysteries #1)       5      52.30    5517.65
+      70                   Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)       5      52.29    5516.60
+      20                                    A Time of Torment (Charlie Parker #14)       5      48.35    5100.92
+     136 Rat Queens, Vol. 1: Sass & Sorcery (Rat Queens (Collected Editions) #1-5)       5      46.96    4954.28
+      65                                                       While You Were Mine       5      41.32    4359.26
+     142                                  Fruits Basket, Vol. 1 (Fruits Basket #1)       5      40.28    4249.54
+      60                                                              The Red Tent       5      35.66    3762.13
+     143               Bleach, Vol. 1: Strawberry and the Soul Reapers (Bleach #1)       5      34.65    3655.58
+      48                                                              Mrs. Houdini       5      30.25    3191.38
+      57                                                     The Passion of Dolssa       5      28.32    2987.76
+      11                                        1,000 Places to See Before You Die       5      26.08    2751.44
+      29         What Happened on Beale Street (Secrets of the South Mysteries #2)       5      25.37    2676.54
+
+--------------------------------------------------------------------------------
+
+--- Query 6 - JOIN ---
+Description: Demonstrates JOIN: Books joined with categories table on category_id.
+SQL Statement:
+SELECT 
+            b.book_id,
+            b.title,
+            c.category_name,
+            b.price_gbp,
+            b.price_inr,
+            b.rating,
+            b.in_stock
+        FROM books b
+        JOIN categories c ON b.category_id = c.category_id
+        ORDER BY b.book_id ASC;
+
+Result Rows: 144
+Output Table:
+ book_id                                                                                             title      category_name  price_gbp  price_inr  rating  in_stock
+       1                                                                           It's Only the Himalayas             Travel      45.17    4765.44       2         1
+       2                                Full Moon over Noahâs Ark: An Odyssey to Mount Ararat and Beyond             Travel      49.43    5214.86       4         1
+       3                                See America: A Celebration of Our National Parks & Treasured Sites             Travel      48.87    5155.78       3         1
+       4                               Vagabonding: An Uncommon Guide to the Art of Long-Term World Travel             Travel      36.94    3897.17       2         1
+       5                                                                              Under the Tuscan Sun             Travel      37.33    3938.31       3         1
+       6                                                                                A Summer In Europe             Travel      44.34    4677.87       2         1
+       7                                                                          The Great Railway Bazaar             Travel      30.54    3221.97       1         1
+       8                                                                  A Year in Provence (Provence #1)             Travel      56.88    6000.84       4         1
+       9 The Road to Little Dribbling: Adventures of an American in Britain (Notes From a Small Island #2)             Travel      23.21    2448.66       1         1
+      10                                                         Neither Here nor There: Travels in Europe             Travel      38.95    4109.23       3         1
+      11                                                                1,000 Places to See Before You Die             Travel      26.08    2751.44       5         1
+      12                                                                                     Sharp Objects            Mystery      47.82    5045.01       4         1
+      13                                                                              In a Dark, Dark Wood            Mystery      19.63    2070.96       1         1
+      14                                                                               The Past Never Ends            Mystery      56.50    5960.75       4         1
+      15                                                                                  A Murder in Time            Mystery      16.64    1755.52       1         1
+      16                                                   The Murder of Roger Ackroyd (Hercule Poirot #4)            Mystery      44.10    4652.55       4         1
+      17                                                                    The Last Mile (Amos Decker #2)            Mystery      54.21    5719.16       2         1
+      18                                                            That Darkness (Gardiner and Renner #1)            Mystery      13.92    1468.56       1         1
+      19                                                              Tastes Like Fear (DI Marnie Rome #3)            Mystery      10.69    1127.79       1         1
+      20                                                            A Time of Torment (Charlie Parker #14)            Mystery      48.35    5100.92       5         1
+      21                                                           A Study in Scarlet (Sherlock Holmes #1)            Mystery      16.73    1765.02       2         1
+      22                                                                  Poisonous (Max Revere Novels #3)            Mystery      26.80    2827.40       3         1
+      23                                             Murder at the 42nd Street Library (Raymond Ambler #1)            Mystery      54.36    5734.98       4         1
+      24                                                                                       Most Wanted            Mystery      35.28    3722.04       3         1
+      25                                                                        Hide Away (Eve Duncan #20)            Mystery      11.84    1249.12       1         1
+      26                                                                     Boar Island (Anna Pigeon #19)            Mystery      59.48    6275.14       3         1
+      27                                                                                         The Widow            Mystery      27.26    2875.93       2         1
+      28                                                                                 Playing with Fire            Mystery      13.71    1446.41       3         1
+      29                                 What Happened on Beale Street (Secrets of the South Mysteries #2)            Mystery      25.37    2676.54       5         1
+      30                          The Bachelor Girl's Guide to Murder (Herringford and Watts Mysteries #1)            Mystery      52.30    5517.65       5         1
+      31                                                  Delivering the Truth (Quaker Midwife Mystery #1)            Mystery      20.89    2203.90       4         1
+      32                                               The Mysterious Affair at Styles (Hercule Poirot #1)            Mystery      24.80    2616.40       4         1
+      33                                                             In the Woods (Dublin Murder Squad #1)            Mystery      38.38    4049.09       2         1
+      34                                                                 The Silkworm (Cormoran Strike #2)            Mystery      23.05    2431.78       5         1
+      35                                                                                        The Exiled            Mystery      43.45    4583.98       3         1
+      36                                                         The Cuckoo's Calling (Cormoran Strike #1)            Mystery      19.21    2026.66       1         1
+      37                                                                Extreme Prey (Lucas Davenport #26)            Mystery      25.40    2679.70       3         1
+      38                                                               Career of Evil (Cormoran Strike #3)            Mystery      24.72    2607.96       2         1
+      39                            The No. 1 Ladies' Detective Agency (No. 1 Ladies' Detective Agency #1)            Mystery      57.70    6087.35       4         1
+      40                                                                                 The Girl You Lost            Mystery      12.29    1296.59       5         1
+      41                                                         The Girl In The Ice (DCI Erika Foster #1)            Mystery      15.85    1672.18       3         1
+      42                                                              Blood Defense (Samantha Brinkman #1)            Mystery      20.30    2141.65       3         1
+      43                                                               1st to Die (Women's Murder Club #1)            Mystery      53.98    5694.89       1         1
+      44                                                                                Tipping the Velvet Historical Fiction      53.74    5669.57       1         1
+      45                         Forever and Forever: The Courtship of Henry Longfellow and Fanny Appleton Historical Fiction      29.69    3132.30       3         1
+      46                                                           A Flight of Arrows (The Pathfinders #2) Historical Fiction      55.53    5858.42       5         1
+      47                                                                             The House by the Lake Historical Fiction      36.95    3898.23       1         1
+      48                                                                                      Mrs. Houdini Historical Fiction      30.25    3191.38       5         1
+      49                                                                         The Marriage of Opposites Historical Fiction      28.08    2962.44       4         1
+      50                                                   Glory over Everything: Beyond The Kitchen House Historical Fiction      45.84    4836.12       3         1
+      51                                                                              Love, Lies and Spies Historical Fiction      20.55    2168.02       2         1
+      52                                                                                 A Paris Apartment Historical Fiction      39.01    4115.55       4         1
+      53                                                                                       Lilac Girls Historical Fiction      17.28    1823.04       2         1
+      54                                                        The Constant Princess (The Tudor Court #1) Historical Fiction      16.62    1753.41       3         1
+      55                                                                            The Invention of Wings Historical Fiction      37.34    3939.37       1         1
+      56                                                   World Without End (The Pillars of the Earth #2) Historical Fiction      32.97    3478.34       4         1
+      57                                                                             The Passion of Dolssa Historical Fiction      28.32    2987.76       5         1
+      58                                                                         Girl With a Pearl Earring Historical Fiction      26.77    2824.24       1         1
+      59                                                                            Voyager (Outlander #3) Historical Fiction      21.07    2222.89       5         1
+      60                                                                                      The Red Tent Historical Fiction      35.66    3762.13       5         1
+      61                                                                  The Last Painting of Sara de Vos Historical Fiction      55.55    5860.52       2         1
+      62                                                 The Guernsey Literary and Potato Peel Pie Society Historical Fiction      49.53    5225.42       1         1
+      63                                                                             Girl in the Blue Coat Historical Fiction      46.83    4940.56       2         1
+      64                                                                            Between Shades of Gray Historical Fiction      20.79    2193.34       5         1
+      65                                                                               While You Were Mine Historical Fiction      41.32    4359.26       5         1
+      66                                                                                 The Secret Healer Historical Fiction      34.56    3646.08       3         1
+      67                                                                                          Starlark Historical Fiction      25.83    2725.06       3         1
+      68                                                                             Lost Among the Living Historical Fiction      27.70    2922.35       4         1
+      69                                                 A Spy's Devotion (The Regency Spies of London #1) Historical Fiction      16.97    1790.33       5         1
+      70                                           Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)     Sequential Art      52.29    5516.60       5         1
+      71                                           Tsubasa: WoRLD CHRoNiCLE 2 (Tsubasa WoRLD CHRoNiCLE #2)     Sequential Art      16.28    1717.54       1         1
+      72                                                                                   This One Summer     Sequential Art      19.49    2056.19       4         1
+      73                                                          The Nameless City (The Nameless City #1)     Sequential Art      38.16    4025.88       4         1
+      74                                                     Saga, Volume 5 (Saga (Collected Editions) #5)     Sequential Art      51.04    5384.72       2         1
+      75                               Rat Queens, Vol. 3: Demons (Rat Queens (Collected Editions) #11-15)     Sequential Art      50.40    5317.20       3         1
+      76                 Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)     Sequential Art      13.61    1435.86       5         1
+      77                                                                       Pop Gun War, Volume 1: Gift     Sequential Art      18.97    2001.33       1         1
+      78                                                                                          Patience     Sequential Art      10.16    1071.88       3         1
+      79                                            Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)     Sequential Art      15.44    1628.92       4         1
+      80                            orange: The Complete Collection 1 (orange: The Complete Collection #1)     Sequential Art      48.41    5107.25       1         1
+      81                                     Lumberjanes, Vol. 2: Friendship to the Max (Lumberjanes #5-8)     Sequential Art      46.91    4949.00       2         1
+      82                                    Lumberjanes, Vol. 1: Beware the Kitten Holy (Lumberjanes #1-4)     Sequential Art      45.61    4811.85       3         1
+      83                                           Lumberjanes Vol. 3: A Terrible Plan (Lumberjanes #9-12)     Sequential Art      19.92    2101.56       2         1
+      84                 I Hate Fairyland, Vol. 1: Madly Ever After (I Hate Fairyland (Compilations) #1-5)     Sequential Art      29.17    3077.44       2         1
+      85                                                                      I am a Hero Omnibus Volume 1     Sequential Art      54.63    5763.46       3         1
+      86                                                              Giant Days, Vol. 2 (Giant Days #5-8)     Sequential Art      22.11    2332.60       2         1
+      87                                                                              Danganronpa Volume 1     Sequential Art      51.99    5484.95       4         1
+      88                                               Codename Baboushka, Volume 1: The Conclave of Death     Sequential Art      36.72    3873.96       4         1
+      89                                                                                     Camp Midnight     Sequential Art      17.08    1801.94       4         1
+      90                   Bitch Planet, Vol. 1: Extraordinary Machine (Bitch Planet (Collected Editions))     Sequential Art      37.92    4000.56       2         1
+      91                                                                 The Shadow Hero (The Shadow Hero)     Sequential Art      33.14    3496.27       1         1
+      92                                                      Fables, Vol. 1: Legends in Exile (Fables #1)     Sequential Art      41.62    4390.91       4         1
+      93                                                               Batman: The Long Halloween (Batman)     Sequential Art      36.50    3850.75       2         1
+      94                                                          Batman: The Dark Knight Returns (Batman)     Sequential Art      15.38    1622.59       5         1
+      95                                  Wonder Woman: Earth One, Volume One (Wonder Woman: Earth One #1)     Sequential Art      37.34    3939.37       4         1
+      96                                    We Are Robin, Vol. 1: The Vigilante Business (We Are Robin #1)     Sequential Art      53.90    5686.45       1         1
+      97                                                                                 Through the Woods     Sequential Art      25.38    2677.59       2         1
+      98                                     Superman Vol. 1: Before Truth (Superman by Gene Luen Yang #1)     Sequential Art      11.89    1254.40       5         1
+      99                                                So Cute It Hurts!!, Vol. 6 (So Cute It Hurts!! #6)     Sequential Art      35.43    3737.86       4         1
+     100                                                                                         Robin War     Sequential Art      47.82    5045.01       3         1
+     101                                 Red Hood/Arsenal, Vol. 1: Open for Business (Red Hood/Arsenal #1)     Sequential Art      25.48    2688.14       2         1
+     102                Naruto (3-in-1 Edition), Vol. 14: Includes Vols. 40, 41 & 42 (Naruto: Omnibus #14)     Sequential Art      38.39    4050.14       2         1
+     103                                      Lowriders to the Center of the Earth (Lowriders in Space #2)     Sequential Art      51.51    5434.30       2         1
+     104                                                                                          El Deafo     Sequential Art      57.62    6078.91       5         1
+     105                                                                                    Batman: Europa     Sequential Art      32.01    3377.06       2         1
+     106                                                                                    Art Ops Vol. 1     Sequential Art      48.80    5148.40       3         1
+     107                                             Adulthood Is a Myth: A "Sarah's Scribbles" Collection     Sequential Art      10.90    1149.95       2         1
+     108                                                          Fruits Basket, Vol. 9 (Fruits Basket #9)     Sequential Art      33.95    3581.73       4         1
+     109                                                                                       Roller Girl     Sequential Art      14.10    1487.55       5         1
+     110                                                          Fruits Basket, Vol. 7 (Fruits Basket #7)     Sequential Art      19.57    2064.64       1         1
+     111                                                          Fruits Basket, Vol. 6 (Fruits Basket #6)     Sequential Art      20.96    2211.28       4         1
+     112                                                 Death Note, Vol. 6: Give-and-Take (Death Note #6)     Sequential Art      36.39    3839.14       3         1
+     113                                                          Fruits Basket, Vol. 5 (Fruits Basket #5)     Sequential Art      16.33    1722.81       1         1
+     114                                                      Death Note, Vol. 5: Whiteout (Death Note #5)     Sequential Art      52.41    5529.25       1         1
+     115                  The Demon Prince of Momochi House, Vol. 4 (The Demon Prince of Momochi House #4)     Sequential Art      27.88    2941.34       2         1
+     116                                                          Fruits Basket, Vol. 4 (Fruits Basket #4)     Sequential Art      50.44    5321.42       4         1
+     117                     The Wicked + The Divine, Vol. 3: Commercial Suicide (The Wicked + The Divine)     Sequential Art      14.41    1520.26       3         1
+     118                                     The Sandman, Vol. 3: Dream Country (The Sandman (volumes) #3)     Sequential Art      55.55    5860.52       5         1
+     119                                                     Saga, Volume 3 (Saga (Collected Editions) #3)     Sequential Art      21.57    2275.64       5         1
+     120                                         Prodigy: The Graphic Novel (Legend: The Graphic Novel #2)     Sequential Art      43.63    4602.96       3         1
+     121                                            Persepolis: The Story of a Childhood (Persepolis #1-2)     Sequential Art      39.13    4128.22       1         1
+     122                                                                                     Original Fake     Sequential Art      31.45    3317.98       3         1
+     123                                                              Grayson, Vol 3: Nemesis (Grayson #3)     Sequential Art      42.72    4506.96       1         1
+     124                                                          Fruits Basket, Vol. 3 (Fruits Basket #3)     Sequential Art      45.17    4765.44       2         1
+     125                                                            Black Butler, Vol. 1 (Black Butler #1)     Sequential Art      49.31    5202.20       1         1
+     126                                                                                           Awkward     Sequential Art      38.02    4011.11       2         1
+     127                                  The Sandman, Vol. 2: The Doll's House (The Sandman (volumes) #2)     Sequential Art      54.81    5782.46       1         1
+     128                                                     Saga, Volume 2 (Saga (Collected Editions) #2)     Sequential Art      11.75    1239.62       3         1
+     129                                                          Fruits Basket, Vol. 2 (Fruits Basket #2)     Sequential Art      11.64    1228.02       5         1
+     130                                            Y: The Last Man, Vol. 1: Unmanned (Y: The Last Man #1)     Sequential Art      18.51    1952.80       4         1
+     131                          The Wicked + The Divine, Vol. 1: The Faust Act (The Wicked + The Divine)     Sequential Art      36.52    3852.86       2         1
+     132                            The Sandman, Vol. 1: Preludes and Nocturnes (The Sandman (volumes) #1)     Sequential Art      54.12    5709.66       3         1
+     133                                                                     The Complete Maus (Maus #1-2)     Sequential Art      10.64    1122.52       3         1
+     134                                                               Skip Beat!, Vol. 01 (Skip Beat! #1)     Sequential Art      42.12    4443.66       3         1
+     135                                                     Saga, Volume 1 (Saga (Collected Editions) #1)     Sequential Art      28.48    3004.64       1         1
+     136                         Rat Queens, Vol. 1: Sass & Sorcery (Rat Queens (Collected Editions) #1-5)     Sequential Art      46.96    4954.28       5         1
+     137                                                            Paper Girls, Vol. 1 (Paper Girls #1-5)     Sequential Art      21.71    2290.41       4         1
+     138                              Ouran High School Host Club, Vol. 1 (Ouran High School Host Club #1)     Sequential Art      29.87    3151.29       3         1
+     139                                         Ms. Marvel, Vol. 1: No Normal (Ms. Marvel (2014-2015) #1)     Sequential Art      39.39    4155.65       4         1
+     140                                                 Hawkeye, Vol. 1: My Life as a Weapon (Hawkeye #1)     Sequential Art      45.24    4772.82       3         1
+     141                                                              Giant Days, Vol. 1 (Giant Days #1-4)     Sequential Art      56.76    5988.18       4         1
+     142                                                          Fruits Basket, Vol. 1 (Fruits Basket #1)     Sequential Art      40.28    4249.54       5         1
+     143                                       Bleach, Vol. 1: Strawberry and the Soul Reapers (Bleach #1)     Sequential Art      34.65    3655.58       5         1
+     144                                                  Ajin: Demi-Human, Volume 1 (Ajin: Demi-Human #1)     Sequential Art      57.06    6019.83       4         1
+
+--------------------------------------------------------------------------------
+

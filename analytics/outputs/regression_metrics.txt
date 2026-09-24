@@ -1,0 +1,15 @@
+================================================================================
+MULTIVARIATE LINEAR REGRESSION (FARE PREDICTION) METRICS
+================================================================================
+
+Target Variable:     fare
+Predictor Features:  ['pclass', 'sex', 'age', 'sibsp', 'parch', 'embarked', 'survived']
+Test Sample Size:    n = 179
+
+  MAE:         20.8977 GBP
+  RMSE:        30.5328 GBP
+  R²:          0.3975
+  Adjusted R²: 0.3729
+
+--- Heteroscedasticity Analysis ---
+The residual plot exhibits a distinct fan/funnel shape (heteroscedasticity), where the variance of residuals expands dramatically as predicted fare increases. For lower-priced tickets (< 50 GBP), residuals cluster tightly around zero, whereas high-fare luxury suites exhibit very large positive errors due to positive skewness and extreme outliers in fare values.

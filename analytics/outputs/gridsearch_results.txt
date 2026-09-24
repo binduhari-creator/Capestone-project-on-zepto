@@ -1,0 +1,16 @@
+================================================================================
+RANDOM FOREST GRIDSEARCHCV RESULTS
+================================================================================
+
+Search Grid:
+  n_estimators: [50, 100, 200]
+  max_depth: [3, 5, 8, None]
+  max_features: ['sqrt', 'log2', 0.5]
+
+Best Hyperparameters:
+  classifier__max_depth: 3
+  classifier__max_features: 0.5
+  classifier__n_estimators: 50
+
+Best 5-Fold Cross-Validation F1-Score: 0.7580
+Out-of-Bag (OOB) Accuracy Score:       0.8174

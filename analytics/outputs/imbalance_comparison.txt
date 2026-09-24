@@ -1,0 +1,18 @@
+================================================================================
+CLASS IMBALANCE HANDLING COMPARISON REPORT
+================================================================================
+
+Training Class Distribution: Died (0) = 439 (61.66%), Survived (1) = 273 (38.34%)
+Imbalance Ratio: 1.61 : 1
+
+Strategy                       | Precision  | Recall     | F1-Score   | Accuracy  
+--------------------------------------------------------------------------------
+Baseline (No Handling)         | 0.7931     | 0.6667     | 0.7244     | 0.8045    
+class_weight=balanced          | 0.7297     | 0.7826     | 0.7552     | 0.8045    
+SMOTE (Train-Fold Only)        | 0.7397     | 0.7826     | 0.7606     | 0.8101    
+
+--- Trade-off Analysis & Conclusion ---
+1. Baseline Logistic Regression yields higher precision (0.7931) but lower recall (0.6667).
+2. class_weight='balanced' improves minority recall to 0.7826 with F1 of 0.7552.
+3. SMOTE training-only oversampling achieves the highest F1-score (0.7606) with balanced precision (0.7397) and recall (0.7826).
+4. Applying SMOTE strictly to the training fold guarantees zero data leakage into test evaluation.

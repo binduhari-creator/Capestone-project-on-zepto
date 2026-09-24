@@ -1,0 +1,16 @@
+================================================================================
+MULTIVARIATE DATA STORY INTERPRETATIONS
+================================================================================
+
+--- Chart 1 Interpretation ---
+Chart 1 (Survival by Class and Sex): Females in 1st class had an exceptional 96.8% survival rate, compared to 92.1% in 2nd and 50.0% in 3rd class. Males suffered markedly lower survival across all classes (36.9% in 1st class, dropping down to only 13.5% in 3rd class). This clearly highlights the compounding protective effect of female gender and higher socioeconomic status.
+
+--- Chart 2 Interpretation ---
+Chart 2 (Age by Class and Survival): Across 1st and 2nd class, surviving passengers were noticeably younger than non-survivors, reflecting the maritime evacuation priority given to children and young mothers. In 3rd class, survival was generally depressed across all age brackets with narrow separation.
+
+--- Chart 3 Interpretation ---
+Chart 3 (Fare vs Age by Survival and Class): High-fare passengers clustered in 1st class experienced overwhelmingly higher survival rates regardless of age. Conversely, low-fare passengers (primarily in 3rd class) faced heavy casualty rates across the entire age spectrum, with very few surviving adults.
+
+--- Chart 4 Interpretation ---
+Chart 4 (Family Size vs Survival): Small family units (sizes 2 to 4) exhibited the highest survival rates across all passenger classes, as families could assist each other during evacuation. In contrast, solo travelers (size 1) and large families (size 5+) suffered significantly lower survival rates due to isolation or difficulties keeping large groups together.
+

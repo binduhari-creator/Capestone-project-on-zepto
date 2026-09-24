@@ -1,0 +1,22 @@
+================================================================================
+UNIVARIATE ANALYSIS & OUTLIER REPORT
+================================================================================
+
+--- AGE IQR Outliers ---
+  Q1: 22.00, Q3: 35.00, IQR: 13.00
+  Lower Bound: 2.50, Upper Bound: 54.50
+  Outliers Count: 65 (7.31% of passengers)
+
+--- FARE IQR Outliers ---
+  Q1: 7.90, Q3: 31.00, IQR: 23.10
+  Lower Bound: -26.76, Upper Bound: 65.66
+  Outliers Count: 114 (12.82% of passengers)
+
+--- FARE SKEWNESS & CENTRAL TENDENCY ---
+  Mean:   32.10
+  Median: 14.45
+  Mode:   8.05
+  Skewness Coefficient: 4.8014
+  Skewness Interpretation:
+  Because Mean (32.10) > Median (14.45) > Mode (8.05), and skewness is strongly positive (+4.79),
+  the fare distribution is strongly RIGHT-SKEWED (positive skew) with a long right tail caused by luxury first-class suites.

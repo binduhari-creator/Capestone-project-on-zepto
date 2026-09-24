@@ -1,0 +1,21 @@
+===============================================================================================
+COMPREHENSIVE MODEL COMPARISON & FINAL RECOMMENDATION REPORT
+===============================================================================================
+
+SECTION A: CLASSIFICATION MODELS (Target = survived [0/1])
+Classifier               | Accuracy   | Precision  | Recall     | F1-Score   | ROC AUC   
+-----------------------------------------------------------------------------------------------
+Logistic Regression      | 0.8045     | 0.7931     | 0.6667     | 0.7244     | 0.8437    
+Decision Tree            | 0.7877     | 0.8605     | 0.5362     | 0.6607     | 0.8152    
+Random Forest            | 0.8156     | 0.8000     | 0.6957     | 0.7442     | 0.8271    
+
+===============================================================================================
+SECTION B: REGRESSION MODEL (Target = fare [Continuous GBP])
+Model                    | MAE (GBP)    | RMSE (GBP)   | R²           | Adjusted R² 
+-----------------------------------------------------------------------------------------------
+Linear Regression        | 20.8977      | 30.5328      | 0.3975       | 0.3729      
+
+===============================================================================================
+SECTION C: FINAL DEPLOYMENT RECOMMENDATION (3-5 SENTENCES)
+-----------------------------------------------------------------------------------------------
+Deployment Recommendation: The Random Forest Classifier is the recommended production model, achieving the strongest overall Accuracy (0.8156), F1-Score (0.7442), and Recall (0.6957) on the holdout test set, surpassing Logistic Regression (F1: 0.7244, AUC: 0.8437) and the Decision Tree (F1: 0.6607, AUC: 0.8152). Its ensemble bagging architecture effectively captures non-linear interactions across passenger class, sex, and age while preventing overfitting.

@@ -1,0 +1,35 @@
+================================================================================
+BIVARIATE ANALYSIS & CORRELATION REPORT
+================================================================================
+
+--- 1. Survival Rate by Sex (Boolean Masking) ---
+  Female Survival Rate: 0.7404 (74.04%) [n=312]
+  Male Survival Rate:   0.1889 (18.89%) [n=577]
+
+--- 2. Survival Rate by Passenger Class (Boolean Masking) ---
+  Class 1 Survival Rate: 0.6262 (62.62%) [n=214]
+  Class 2 Survival Rate: 0.4728 (47.28%) [n=184]
+  Class 3 Survival Rate: 0.2424 (24.24%) [n=491]
+
+--- 3. Survival Rate by Sex + Pclass (Boolean Masking) ---
+  Female in Class 1: Survival Rate = 0.9674 (96.74%) [n=92]
+  Female in Class 2: Survival Rate = 0.9211 (92.11%) [n=76]
+  Female in Class 3: Survival Rate = 0.5000 (50.00%) [n=144]
+  Male in Class 1: Survival Rate = 0.3689 (36.89%) [n=122]
+  Male in Class 2: Survival Rate = 0.1574 (15.74%) [n=108]
+  Male in Class 3: Survival Rate = 0.1354 (13.54%) [n=347]
+
+--- 4. Correlation Matrix (6x6) ---
+          survived    pclass       age     sibsp     parch      fare
+survived  1.000000 -0.335549 -0.069822 -0.034040  0.083151  0.255290
+pclass   -0.335549  1.000000 -0.336512  0.081656  0.016824 -0.548193
+age      -0.069822 -0.336512  1.000000 -0.232543 -0.171485  0.093707
+sibsp    -0.034040  0.081656 -0.232543  1.000000  0.414542  0.160887
+parch     0.083151  0.016824 -0.171485  0.414542  1.000000  0.217532
+fare      0.255290 -0.548193  0.093707  0.160887  0.217532  1.000000
+
+--- 5. Top Two Strongest Absolute Off-Diagonal Correlations ---
+  1. Pair: (pclass, fare) | r = -0.5482 | |r| = 0.5482
+     Interpretation: Strong negative correlation between pclass and fare. First-class passengers (pclass=1) paid substantially higher fares than second and third class.
+  2. Pair: (sibsp, parch) | r = 0.4145 | |r| = 0.4145
+     Interpretation: Moderate positive correlation between sibsp (siblings/spouses) and parch (parents/children), reflecting passengers traveling in cohesive multi-member family units.
